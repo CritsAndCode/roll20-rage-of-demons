@@ -15,9 +15,16 @@ on("chat:message", function(msg) {
                 'new check to find the right path.}}' +
             '{{Food & Water=Check food supplies. Each character requires 1 lb of food and 1 gal of water for each day. If a character does not eat for a number of days equal to their constitution modifier, they lose 1 constitution (and 1 for each subsequent day). If they do not drink for a day, they lose 1 constitution. Halving rations doubles this period, but the count does not reset until a full ration is eaten.}}' +
             '{{Foraging=DC ' + foragingDC + ' Wisdom (Survival) check.}}');
+    }
+    
+    if (msg.content === '!travel') {
         sendChat(msg.who, rollForTravelEncounter());
+    }
+    
+    if (msg.content === '!rest') {
         sendChat(msg.who, rollForRestEncounter());
     }
+    
     if (msg.content === '!forage') {
         sendChat(msg.who, '/w gm &{template:default} {{name=ForageResult}}' + getForageResult());
     }
